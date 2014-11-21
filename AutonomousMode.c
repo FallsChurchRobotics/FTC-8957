@@ -31,12 +31,12 @@ task main(){
 		motor[motorD] = 50;
 		motor[motorE] = -50;
 	}
-	while(SensorValue[IR1] != 5){
+	/*while(SensorValue[IR1] != 5){
 		IR1value = SensorValue[IR1];
 		nxtDisplayCenteredTextLine(5,"%d",IR1value);
 		motor[motorD] = 20;
 		motor[motorE] = -20;
-}
+	}*/
 	SensorValue[rightEncoder] = 0;
 	SensorValue[leftEncoder] = 0;
 	while(SensorValue[rightEncoder]<(1440*5)){
