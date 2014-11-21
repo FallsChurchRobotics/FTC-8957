@@ -14,8 +14,8 @@
 
 task main(){
 	while(true){
-	nxtDisplayTextLine(1,"%d",SensorValue[rightEncoder];
-	nxtDisplayTextLine(1,"%d",SensorValue[leftEncoder];
+	nxtDisplayTextLine(1,"%d",SensorValue[rightEncoder]);
+	nxtDisplayTextLine(1,"%d",SensorValue[leftEncoder]);
 	}
 	SensorValue[rightEncoder] = 0;
 	SensorValue[leftEncoder] = 0;
