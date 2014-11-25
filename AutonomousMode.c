@@ -11,17 +11,23 @@
 #pragma config(Servo,  srvo_S1_C2_5,    servo5,               tServoNone)
 #pragma config(Servo,  srvo_S1_C2_6,    servo6,               tServoNone)
 #pragma config(Sensor, S1,     HTIRS2,              sensorI2CCustom)
+#include "HTIRS2-driver.h"
 
 task initializeRobot(){
 	nMotorEncoder = 0;
 	nMotorEncoder = 0;
 }
+HTIRS2setDSPMode(1,-DSP_1200);
 
-task main(){	
+task main(){
+	initializeRobot;
+	
 	while(true){
-		//Displays the Encoder Values on the NXT's screen
+		int IRSensorDir = IRHTIRS2readACDir(1);
+		//Displays the Encoder Values + IR Sensor Direction on the NXT's screen
 		nxtDisplayTextLine(1,"%d",nMotorEncoder[rightMotor]);
 		nxtDisplayTextLine(2,"%d",nMotorEncoder[leftMotor]);
+		nxtDisplayTextLine(3,"%d",IRSensorDir);
 		//Reseting Motor Encoders	
 		nMotorEncoder[rightMotor] = 0;
 		nMotorEncoder[leftMotor] = 0;
@@ -39,12 +45,12 @@ task main(){
 			motor[leftMotor] = -50;
 		}
 		//Robot Third Movement - IRSensor fine adjustments
-		/*while(SensorValue[IR1] != 5){
+		while(SensorValue[IR1] != 5){
 		IR1value = SensorValue[IR1];
 		nxtDisplayCenteredTextLine(5,"%d",IR1value);
 		motor[rightMotor] = 20;
 		motor[rightMotor] = -20;
-		}*/
+		}
 		//Reseting Motor Encoders
 		nMotorEncoder[rightMotor] = 0;
 		nMotorEncoder[leftMotor] = 0;
