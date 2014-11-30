@@ -11,7 +11,9 @@
 #pragma config(Servo,  srvo_S1_C2_5,    servo5,               tServoNone)
 #pragma config(Servo,  srvo_S1_C2_6,    servo6,               tServoNone)
 #pragma config(Sensor, S1,     HTIRS2,              sensorI2CCustom)
-#include "HTIRS2-driver.h"
+#include "hitechnic-irseeker-v2.h"
+#include "hitechic-accelerometer.h"
+#include "hitechnic-gyro.h"
 
 task initializeRobot(){
 	nMotorEncoder = 0;
