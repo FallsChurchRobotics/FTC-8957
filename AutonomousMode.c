@@ -16,6 +16,7 @@
 task initializeRobot(){
 	nMotorEncoder = 0;
 	nMotorEncoder = 0;
+	ReadSensorHTAccel(S1, x, y, z);
 }
 HTIRS2setDSPMode(1,-DSP_1200);
 
